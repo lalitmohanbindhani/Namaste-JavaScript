@@ -1,24 +1,26 @@
 let name = {
-  firstName: "Lalit Mohan",
+  firstName: "Lalit",
   lastName: "Bindhani",
 };
-let name2 = {
-  firstName: "Sachin",
-  lastName: "Tendulkar",
-};
 
-let printFullname = function (hometown, state) {
+let printFullName = function (place, state) {
   console.log(
-    this.firstName + " " + this.lastName + " from " + hometown + "," + state
+    this.firstName + " " + this.lastName + " from " + place + ", " + state,
   );
 };
 
-printFullname.call(name, "Bhubaneswar", "Odisha");
+printFullName.call(name, "Bhubaneswar", "Odisha");
 
-printFullname.apply(name2, ["Mumbai", "Maharastra"]);
+let name2 = {
+  firstName: "Lopamudra",
+  lastName: "Bindhani",
+};
 
-let printMyName = printFullname.bind(name, "Bhubaneswar", "Odisha");
-console.log(printMyName);
+printFullName.call(name2, "Bhubaneswar", "Odisha");
+
+printFullName.apply(name2, ["Bhubaneswar", "Odisha"]);
+
+let printMyName = printFullName.bind(name2, "Bhubaneswar", "Odisha");
 printMyName();
 /*
 call method :- we can borrow function from another function to use it 

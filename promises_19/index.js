@@ -13,42 +13,52 @@ promises : - promises is an object represent an  eventual completation or reject
 asynchronous operation.
 */
 
-// cart = ["shirt", "pant", "kurtas"];
+cart = ["shirt", "pant", "kurtas"];
 
-// createOrderApi(cart, function (orderId) {
-//   proceedTopayment(orderId);
-// }); // order Details like order Id
+// const GITHUB_API = "https://api.github.com/users/lalitmohanbindhani";
 
-// createOrderApi(cart)
-//   .then((orderId) => proceedTopayment(orderId))
-//   .then((paymentInfo) => showOrderSummery(paymentInfo))
-//   .then((paymentInfo) => updateWalletBalance(paymentInfo));
-
-// const user = fetch("https://ap.github.com/users/lalitmohanbindhani");
-// console.log(user);
-// user.then(function (data) {
-//   console.log(data);
-// });
-
-const GITHUB_API = "https://api.github.com/users/lalitmohanbindhani";
-
-const promise = fetch(GITHUB_API);
-promise.then(function (data) {
-  console.log(data);
-});
-
-// const cart = ["Shirt", "Pants", "Kurtas"];
-
-// createOrderApi(cart, function (orderId) {
-//   proceedToPayment(orderId);
+// const data = fetch(GITHUB_API);
+// data.then((res) => console.log(res));
+// createOrder(cart, function () {
+//   proceedToPayment(orderId, function () {
+//     showOrderSummery(paymentInfo, function () {
+//       updateWalletBalance();
+//     });
+//   });
 // }); //orderId
 
+createOrder(cart)
+  .then((orderId) => proceedToPayment(orderId))
+  .then((paymentInfo) => showOrderSummery(paymentInfo))
+  .then((paymentInfo) => updateWalletBalance(paymentInfo));
+
+// createOrderApi(cart, function (orderId) {
+//   proceedTopayment(orderId, function () {
+//     showOrderSummery(paymentInfo, function (paymentInfo) {
+//       updateWalletBalance(paymentInfo);
+//     });
+//   });
+// });
+
+// createOrder(cart)
+//   .then(function (orderId) {
+//     return proceedTopayment(orderId);
+//   })
+//   .then(function (paymentInfo) {
+//     return howOrderSummery(paymentInfo);
+//   })
+//   .then(function (paymentInfo) {
+//     return updateWalletBalance(paymentInfo);
+//   });
+
 // createOrderApi(cart)
 //   .then((orderId) => proceedTopayment(orderId))
 //   .then((paymentInfo) => showOrderSummery(paymentInfo))
 //   .then((paymentInfo) => updateWalletBalance(paymentInfo));
 
-// createOrderApi(cart)
-//   .then(orderId => proceedToPayment(orderId))
-//   .then(paymentInfo =>showOrderSummery(paymentInfo))
-//   .then(paymentInfo=>updateWalletBalance(paymentInfo))
+// const GITHUB_API = "https://api.github.com/users/lalitmohanbindhani";
+
+// const promise = fetch(GITHUB_API);
+// promise.then(function (data) {
+//   console.log(data);
+// });

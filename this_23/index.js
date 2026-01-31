@@ -1,61 +1,53 @@
 "use strict";
 
+//// this in global space
 console.log(this);
+// this keyword in global space represent the global object.
+// javascript does not run only on browser, it run on other devices also
+// for browser the global oject is different , in case of mobile phone it is different,
+//  in case of some other device the global object is different .
+// so in case of browser  the global object is window.
+// and in case of node js the global object is Global
+
+//// this inside a function
 
 function x() {
   console.log(this);
 }
+
+// inside function also it is window object but they are not same for global space
+// because it behave different in strict and non strict mode.
+
+//// this in strict mode - (this substitution)
+//if we are inside a function the value of this depends on strict and non strict mode
+//inside strict mode the value of this is undefined
+//inside non strict mode the value of this is window object.
+// these all happens because of this substitutio - if the value of this is undefined or null anytime
+//this will be replaced with global object only in non strict mode.
+
+////this value depends on how this is called (window)
 x();
+//if the function is called without any reference then it is undefined
 window.x();
+//if the function is called like window.x(); then the value is window object.
 
-const student1 = {
-  name: "Lalit",
-  printName: function () {
-    console.log(this.name);
-  },
-};
-
-const student2 = {
-  name: "Adyasa",
-};
-
-student1.printName.call(student2);
+//// this inside a object method
 
 const obj = {
   a: 10,
-  x: () => {
-    console.log(this);
-  },
-};
-
-obj.x();
-
-const obj2 = {
-  a: 10,
   x: function () {
-    const y = () => {
-      console.log(this);
-    };
-    y();
+    console.log(this.a);
   },
 };
 
-obj2.x();
-/*
-in global space the value of this referes to global object in all javascript run time enviroment.
-in browser this refers window object 
-in node this refers to global
+//the value of this is always depends on how the function is called.
+obj.x();
+//if we call like obj.x(); then it will give the object itsel
 
-inside a function the value of this depends om strict and non strict mode
-in non strict mode it is window object and in strict mode the value of this is undefined
+////call apply bind method (sharing methods)
 
-this depends on how thew function is called 
+////this inside arrow function
 
-this substitution :- if the value is this keyword is undefined or null then js will replaced this 
-keyword with global object only in non strict mode.
+//// this inside nested arrow function
 
-arrow function doesn't provide there own this binding. it retains the value of 
-this enclosing lexical context.
-
-this inside DOM element - reference to the HTML element.
-*/
+//// this inside dom

@@ -1,39 +1,49 @@
-const API_URL = "https://api.github.com/users/lalitmohanbindhani";
+// async function will always return a promise , there is 2 case:
+// either we return a promise or else if we do not return  a promise , say we return a
+// string or boolean or number it will wrap it inside a promise and will return the promise.
 
-async function handlePromise() {
-  const data = await fetch(API_URL);
-  const jsonValue = await data.json();
-  console.log(jsonValue);
-}
+// const p = new Promise((resolve, reject) => {
+//   setTimeout(function () {
+//     resolve("Promise Resolved Value");
+//   }, 10000);
+// });
 
-handlePromise().catch((err) => console.log(err));
+// const p2 = new Promise((resolve, reject) => {
+//   setTimeout(function () {
+//     resolve("Promise Resolved Value");
+//   }, 20000);
+// });
+
+// // async and await combo are used to handle promises.
+
+// async function handlePromise() {
+//   console.log("Hellow World");
+
+//   const data = await p;
+//   console.log("Namaste javascript");
+//   console.log(data);
+
+//   const data2 = await p2;
+//   console.log("Namaste javascript 2");
+//   console.log(data2);
+// }
+
+// handlePromise();
 
 // function getData() {
 //   p.then((res) => console.log(res));
-//   console.log("Namaste JavaScript");
+//   console.log("Namaste javascript");
 // }
 
 // getData();
 
-/*
-Async - Async is a keyword that is used before a function to create asynchronous function
-async function will always return a promise.
-either we return a promise or else if we will return a value it will wrap it inside a promise 
-and then return a promise.
+//const GITHUB_API = "https://api.github.com/users/lalitmohanbindhani";
+const GITHUB_API = "https://invalidUserApi";
 
+async function handlePromise() {
+  const data = await fetch(GITHUB_API);
+  const json = await data.json();
+  console.log(json);
+}
 
-async and await combo is used to handle promises
-await - await is a keyword which can only be used inside an async function.
-we right await infront of promise and it will resolve the promises
-
-the async function will suspend the for the time the promise got resolved and then it will come 
-again to the call stack, basically JabaScript is not waiting for anyone it quickly execute the code.
-
-
-fetch() returns a response object and the response object has a body which is a readable stream,
-and to make is JSON we have to do response.JSON() and this .JSON() is always a promise,
-and when the promise is resolve it will give the value.
-
-
-async/await is just a syntactctical sugar . JS is using .then and .catch behind the scene.
-*/
+handlePromise().catch((err) => console.log(err));

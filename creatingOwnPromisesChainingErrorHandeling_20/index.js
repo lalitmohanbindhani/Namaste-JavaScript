@@ -1,82 +1,43 @@
-// const cart = ["shoes", "pants", "kurtas"];
-
-// createOrder(cart)
-//   .then(function (orderId) {
-//     console.log(orderId);
-//     return orderId;
-//   })
-//   .then(function (orderId) {
-//     return proceedToPayment(orderId);
-//   })
-//   .then(function (paymentInfo) {
-//     console.log(paymentInfo);
-//   })
-//   .catch(function (err) {
-//     console.log(err.message);
-//   });
-
-// function createOrder(cart) {
-//   const pr = new Promise(function (resolve, reject) {
-//     if (!validateCart(cart)) {
-//       const err = new Error("Cart is not valid");
-//       reject(err);
-//     }
-
-//     const orderId = "12345";
-//     if (orderId) {
-//       setTimeout(function () {
-//         resolve(orderId);
-//       }, 3000);
-//     }
-//   });
-
-//   return pr;
-// }
-
-// function proceedToPayment(orderId) {
-//   return new Promise(function (resolve, reject) {
-//     resolve("Payment Successfully");
-//   });
-// }
-
-// function validateCart() {
-//   return false;
-// }
-
-/*
-This kind of structure makes our code much more readable 
+/*This kind of structure makes our code much more readable 
 maintainable and developer friendly.
 */
 
 const cart = ["Shirt", "Pants", "Kurtas"];
 
-createOrder(cart)
+const promise = createOrder(cart);
+
+promise
   .then(function (orderId) {
     console.log(orderId);
     return orderId;
   })
+  .catch(function (err) {
+    console.log(err.message);
+  })
   .then(function (orderId) {
-    return proceedToPayment(orderId);
+    return proceedToPatyment(orderId);
   })
   .then(function (paymentInfo) {
     console.log(paymentInfo);
   })
   .catch(function (err) {
     console.log(err.message);
+  })
+  .then(function () {
+    console.log("Whatever happen  i will be caled definitely");
   });
 
 function createOrder(cart) {
   const pr = new Promise(function (resolve, reject) {
-    //createOrder
     //validateCart
+    //createOrder
     //orderId
 
     if (!validateCart(cart)) {
-      const err = new Error("Cart is not valid");
+      const err = new Error("Cart is not defined");
       reject(err);
-    }
-    const orderId = "12345";
-    if (orderId) {
+    } else {
+      const orderId = 12345;
       setTimeout(function () {
         resolve(orderId);
       }, 5000);
@@ -86,12 +47,12 @@ function createOrder(cart) {
   return pr;
 }
 
-function proceedToPayment(orderId) {
+function proceedToPatyment(orderId) {
   return new Promise(function (resolve, reject) {
     resolve("Payment Successful");
   });
 }
 
-function validateCart(cart) {
-  return true;
+function validateCart() {
+  return false;
 }

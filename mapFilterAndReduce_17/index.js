@@ -1,36 +1,4 @@
-const arr = [2, 3, 1, 5, 4];
-
-// function double(x) {
-//   return x * 2;
-// }
-
-// function triple(x) {
-//   return x * 3;
-// }
-
-// const output = arr.map((x) => x.toString(2));
-// console.log(output);
-
-// function findMax(arr) {
-//   let max = 0;
-//   for (let i = 0; i < arr.length; i++) {
-//     if (max < arr[i]) {
-//       max = arr[i];
-//     }
-//   }
-//   return max;
-// }
-
-// console.log(findMax(arr));
-
-// const output = arr.reduce(function (acc, curr) {
-//   if (acc < curr) {
-//     acc = curr;
-//   }
-//   return acc;
-// }, 0);
-
-// console.log(output);
+const arr = [2, 3, 1, 7, 4];
 
 const users = [
   { firstName: "Lalit Mohan", lastName: "Bindhani", age: 28 },
@@ -39,10 +7,61 @@ const users = [
   { firstName: "Elon", lastName: "Musk", age: 28 },
 ];
 
-const output = users.reduce(function (acc, curr) {
+const output = users.reduce((acc, curr) => {
   if (curr.age < 30) {
     acc.push(curr.firstName);
   }
   return acc;
 }, []);
+
 console.log(output);
+
+// const output2 = users.reduce(function (acc, curr) {
+//   if (curr.age < 30) {
+//     acc.push(curr.firstName);
+//   }
+//   return acc;
+// }, []);
+
+// console.log(output2);
+
+// function findList(users) {
+//   let list = {};
+
+//   for (let i = 0; i < users.length; i++) {
+//     if (list[users[i].age]) {
+//       list[users[i].age] = ++list[users[i].age];
+//     } else {
+//       list[users[i].age] = 1;
+//     }
+//   }
+
+//   return list;
+// }
+
+// console.log(findList(users));
+
+// function findList(users) {
+//   let list = {};
+//   for (let i = 0; i < users.length; i++) {
+//     if (list[users[i].age]) {
+//       list[users[i].age] = ++list[users[i].age];
+//     } else {
+//       list[users[i].age] = 1;
+//     }
+//   }
+//   return list;
+// }
+
+// console.log(findList(users));
+
+// const output = users.reduce((acc, curr) => {
+//   if (acc[curr.age]) {
+//     acc[curr.age] = ++acc[curr.age];
+//   } else {
+//     acc[curr.age] = 1;
+//   }
+//   return acc;
+// }, {});
+
+// console.log(output);
