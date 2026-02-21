@@ -1,6 +1,7 @@
 var n = 2;
-function square(n) {
-  var ans = n * n;
+
+function square(num) {
+  const ans = num * num;
   return ans;
 }
 
