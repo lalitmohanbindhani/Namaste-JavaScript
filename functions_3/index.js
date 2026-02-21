@@ -1,14 +1,14 @@
-var x = 1;
-a();
-b();
-console.log(x);
+var a = 1;
+x();
+y();
+console.log(a);
 
-function a() {
-  var x = 10;
-  console.log(x);
+function x() {
+  var a = 10;
+  console.log(a);
 }
 
-function b() {
-  var x = 100;
-  console.log(x);
+function y() {
+  var a = 100;
+  console.log(a);
 }
