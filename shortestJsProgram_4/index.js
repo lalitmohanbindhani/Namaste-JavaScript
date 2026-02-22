@@ -1,7 +1,2 @@
-/* Anything that is not inside any 
-functio that is in Global Space 
-
-Whenever we create any variable or function in the global space
-these were attached to the windown object
-
-in browser this referes to the window objects*/
+var a = 10;
+console.log(window.a);

@@ -1,30 +1,43 @@
-function x() {
-  for (var i = 1; i <= 5; i++) {
-    function close(x) {
-      setTimeout(function () {
-        console.log(x);
-      }, x * 1000);
+// function x() {
+//   for (var i = 1; i <= 5; i++) {
+//     function close(x) {
+//       setTimeout(function () {
+//         console.log(x);
+//       }, x * 1000);
+//     }
+//     close(i);
+//   }
+
+//   console.log("Hello World");
+// }
+
+// x();
+
+// function z() {
+//   var d = 100;
+//   function x() {
+//     var a = 7;
+//     function y() {
+//       console.log(a, d);
+//     }
+//     y();
+//   }
+//   x();
+// }
+// z();
+
+function outest() {
+  var c = 20;
+  function outer(b) {
+    function inner() {
+      console.log(a, b, c);
     }
-    close(i);
+    let a = 10;
+    return inner;
   }
-  console.log("Namste JavaScript");
+  return outer;
 }
+let a = 100;
 
-x();
-
-/*
-
-1.it behaves because of clousere. clousere is like function along with its lexixal
-environment bundled together.even when the function is taken out from the 
-original scope still it remembers its lexical environment.
-when the setTimeout takes this function and attaches a timer to it and store it
-somewhere it remembers the reference to that variable because the enviroment for
-all the references are same.
-
-2.secondly javaScript wait for none, it will not wait for timer to expire 
-so it will quicky execute the code. by the timer expire the reference to that varibale 
-necome 6 hence it print like that.
-
-
-
-*/
+var close = outest()("Lalit");
+close();
