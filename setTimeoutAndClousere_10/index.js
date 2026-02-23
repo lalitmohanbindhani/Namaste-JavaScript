@@ -26,18 +26,40 @@
 // }
 // z();
 
-function outest() {
-  var c = 20;
-  function outer(b) {
-    function inner() {
-      console.log(a, b, c);
-    }
-    let a = 10;
-    return inner;
-  }
-  return outer;
-}
-let a = 100;
+// function outest() {
+//   var c = 20;
+//   function outer(b) {
+//     function inner() {
+//       console.log(a, b, c);
+//     }
 
-var close = outest()("Lalit");
-close();
+//     return inner;
+//   }
+//   return outer;
+// }
+
+// var close = outest()("Lalit");
+// close();
+
+function Counter() {
+  var count = 0;
+  this.incrementCounter = function () {
+    count++;
+    console.log(count);
+  };
+
+  this.decrementCounter = function () {
+    count--;
+    console.log(count);
+  };
+}
+
+var counter1 = new Counter();
+
+counter1.incrementCounter();
+counter1.incrementCounter();
+counter1.incrementCounter();
+counter1.incrementCounter();
+counter1.decrementCounter();
+counter1.decrementCounter();
+counter1.decrementCounter();
